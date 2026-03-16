@@ -7,14 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body >
-
-
-   
-
-    
-
-   
-
     <div class="card">
         <h1 class="title">Weather Forecast</h1>
          <div class="search">
@@ -50,9 +42,9 @@
          </div>
 
     </div>
-
+<script src="config.js"></script>
     <script>
-        const apikey ="9a9f17a2ac4c94e9c7e5b7ae761e22f0";
+        const apikey = API_KEY;
         const apiUrl ="https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
 
@@ -64,7 +56,7 @@
           async function checkWeather(city) {
              
             const response = await fetch(apiUrl + city + `&appid=${apikey}`);
-            if(response.status ==404){
+            if(!response.ok){
                 document.querySelector(".error").style.display="block";
                 document.querySelector(".weather").style.display="none"
             }
